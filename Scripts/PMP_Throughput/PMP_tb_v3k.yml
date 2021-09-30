@@ -1,0 +1,93 @@
+devices:
+    CTRL:
+      alias: 'CTRL'
+      type: 'linux'
+      os: 'linux'
+      credentials:
+          default:
+              password: cnwave
+              username: "cambium"
+      connections:
+          cli:
+              protocol: ssh 
+              ip: "10.110.186.145"
+
+      custom:
+          ip: "10.110.186.145"
+          node_list: '30_a8,aa_bb,bb_a6,30_87,00_d2,00_d9,01_03,01_07,01_0c,06_02,07_1d,09_e9,10_23,11_8a,1b_dc'
+          link_list: 'link-30_a8-POP,link-POP-aa_bb,link-POP-bb_a6,link-30_87-POP,link-00_d2-POP,link-00_d9-POP,link-01_03-POP,link-01_07-POP,link-01_0c-POP,link-06_02-POP,link-07_1d-POP,link-09_e9-POP,link-10_23-POP,link-11_8a-POP,link-1b_dc-POP'
+
+    node-00-04-56-88-30-40:~:
+      alias: 'POP'
+      type: 'linux'
+      os: 'linux'
+      credentials:
+          default:
+              password: cambium
+              username: "root"
+      connections:
+          cli:
+              protocol: ssh 
+              ip: "10.110.186.145"
+      custom:                           
+          name : 'POP' 
+          mac : '00:04:56:88:30:40' 
+          site : 'POP'
+          location : '/home/cnwave/pyats/'
+                  
+    cnwave:~:
+      alias: 'SERVER'
+      type: 'linux'
+      os: 'linux'
+      credentials:
+          default:
+              password: cnwave
+              username: "root"
+      connections:
+          cli:
+              protocol: ssh 
+              ip: "10.110.186.23"
+      custom:
+        ipv4 : '30.30.30.1/24'
+        ipv6 : '2001:3001:4001:200::12/64'
+        GW : '2001:3001:4001:200::1'
+        inf : 'enp1s0'
+        file_name : '/home/cnwave/pyats/cnWave60Ghz/Scripts/PMP_Throughput/Results/PMP_Single_link_throughput/L3_L2_1.2_pr_28_09_2021_v3k_latest.csv'    
+    
+    ubuntu1804:~:
+      alias: 'CLIENT'
+      type: 'linux'
+      os: 'linux'
+      credentials:
+          default:
+              password: ubuntu
+              username: "root"
+      connections:
+          cli:
+              protocol: ssh 
+              ip: "10.110.186.187"
+      custom:
+          inf : 'ens33'
+          ipv4 : '30.30.30.2/24'
+          BW : '1.8G'
+
+    switch :
+      alias: 'SWITCH'
+      type: 'switch'
+      os: 'ngos'
+      credentials:
+          default:
+              password: admin123
+              username: "admin"
+          enable:
+              password: admin123
+      connections:
+          cli:
+              protocol: ssh
+              ip: "10.110.186.105"
+      custom:
+          inf : '1/0/8'
+          vlan: '120'
+          cpe_inf : 'nic2'
+        
+    

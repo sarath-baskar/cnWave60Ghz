@@ -10,14 +10,13 @@ from pyats.datastructures.logic import And, Or, Not
 def main():
     # Find the location of the script in relation to the job file
     test_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    testscript = os.path.join(test_path, 'VLAN/vlan_verify_api.py')
+    testscript = os.path.join(test_path, 'PMP_Throughput/PMP_all_link_throughput.py')
 
 
     run(testscript=testscript,
     ctrl_alias='CTRL',
+    pop_alias='POP',
     server_alias='SERVER',
     client_alias='CLIENT',
-    client2_alias='CLIENT2',
-    client3_alias='CLIENT3',
-    dn_alias='DN'
+    switch_alias='SWITCH',
     )

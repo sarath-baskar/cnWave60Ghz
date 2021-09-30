@@ -2,12 +2,13 @@ import re
 import logging
 import sys
 from datetime import datetime
+from API.request import *
 
 
 
 logger = logging.getLogger('config')
 
-class fetch():
+class fetch_cli():
                         
     def link_status(node,kv='OFFLINE'):
         j = str(node)
@@ -17,7 +18,7 @@ class fetch():
             return True
 
     def fetch_topology(device,type_='Link'):
-        return device.execute('tg topology ls')
+        return device.execute('tg2 topology ls')
         ''' print(raw_output)         
         #del raw_output[-1]
         raw_output[-1]=raw_output[-1].replace('\n','')
@@ -81,6 +82,13 @@ class fetch():
         table_data['Link']=Link
         table_data['Site']=Site
         return table_datai'''
+
+class fetch_api():
+  def get_link_state(ctrl_ip,link_name):
+        url = "https://{}/api/v2/getLink".format(ctrl_ip)
+        string = "{\"name\": \"dummy\"}"
+        payload=string.replace("dummy",str(link_name))
+        return request(str(url),payload,"POST")
 
 if __name__ == '__main__':
     fetch = Fetch()

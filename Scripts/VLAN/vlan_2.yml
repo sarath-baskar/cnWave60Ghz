@@ -10,9 +10,9 @@ devices:
       connections:
           cli:
               protocol: ssh 
-              ip: "10.110.186.191"
+              ip: "10.110.186.107"
       custom:                           
-          name : 'node-V3000-883040' 
+          name : 'POP' 
           mac : '00:04:56:88:30:40' 
           site : 'POP'
           lat : '12.9339'
@@ -20,11 +20,13 @@ devices:
           alt : '4.5'
           acc : '8.9'
           iface : 'nic2'
+          br_iface : 'nic3'
           routing : 'STATIC'
           management_ip : '169.254.1.1'
           mcvlan : '10'
           msvlan : '1000'
-          location : '/home/cnwave/pyats/'      
+          location : '/home/cnwave/pyats/'
+          link_name : 'link-DN-POP'  
     DN1:
       alias: 'DN'
       type: 'linux'
@@ -38,7 +40,7 @@ devices:
               protocol: ssh
               ip: "10.110.186.191"
       custom:         
-          name : 'o_DN'
+          name : 'DN'
           mac : '00:04:56:88:30:4c' 
           site : 'o_DN'
           lat : '12.93294' 
@@ -117,6 +119,6 @@ devices:
               protocol: ssh
               ip: "10.110.186.182"
       custom:
-          inf : 'enx00e04c680008'
+          inf : 'eth0'
           ipv4 : '192.168.1.103/24'
 

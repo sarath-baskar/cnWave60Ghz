@@ -12,7 +12,7 @@ devices:
               protocol: ssh 
               ip: "10.110.186.191"
       custom:                           
-          name : 'node-V3000-883040' 
+          name : 'POP' 
           mac : '00:04:56:88:30:40' 
           site : 'POP'
           lat : '12.9339'
@@ -72,7 +72,7 @@ devices:
         capture_file : '/home/cnwave/dump.pcap'    
     
     ubuntu:~:
-      alias: 'CLIENT3'
+      alias: 'CLIENT'
       type: 'linux'
       os: 'linux'
       credentials:
@@ -88,7 +88,7 @@ devices:
           ipv4 : '192.168.1.101/24'
 
     cnwave:~:
-      alias: 'CLIENT'
+      alias: 'CLIENT3'
       type: 'linux'
       os: 'linux'
       credentials:
